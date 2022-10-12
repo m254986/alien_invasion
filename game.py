@@ -1,4 +1,5 @@
 import pygame
 
-print("hello world")
+print("welcome to pygame!")
 
+print("hello world")
