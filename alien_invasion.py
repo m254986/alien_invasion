@@ -5,6 +5,7 @@ import pygame
 from settings import Settings
 from ship import Ship
 
+
 class AlienInvasion:
     """Overall class to manage game assets and behavior."""
 
@@ -37,6 +38,15 @@ class AlienInvasion:
 
             # Make most recently drawn screen VISIBLE.
             pygame.display.flip()
+
+            #self._check_events()
+            # Redraw screen during each pass through the loop.
+
+#def _check_events(self):
+    #"""Respond to keypresses and mouse events."""
+    #for event in pygame.event.get():
+        #if event.type == pygame.QUIT:
+            #sys.exit()
 
 if __name__ == '__main__':
     # Make a game instance then run da game!!
