@@ -1,29 +1,26 @@
 import pygame
 import time
 
-pygame.init()
-screen = pygame.display.set_mode((200, 200))
-screen.fill((128, 255, 255))
-
-zombie = pygame.image.load('../images/character_zombie_attack0.bmp')
-
-zombie_rect = zombie.get_rect()
-screen_rect = screen.get_rect()
-zombie_rect.center = screen_rect.center # move to center
-
-#draw or blit the zombie onto screen!
-screen.blit(zombie, zombie_rect)
 
 class Zombie:
     """Lets create the zombie!!"""
     def __init__(self, screen):
-        self.rect = Zombie.get_rect()
         self.image = pygame.image.load('../images/character_zombie_attack0.bmp')
+        self.rect = self.image.get_rect()
         self.screen = screen
+        screen_rect = screen.get_rect()
+        self.rect.center = screen_rect.center
 
-    def blitme(self):
+    def draw(self):
         """Draw self"""
         self.screen.blit(self.image, self.rect)
+        #self.screen.blit(self.image, self.rect)
 
+
+pygame.init()
+screen = pygame.display.set_mode((200, 200))
+screen.fill((128, 255, 255))
+zombie = Zombie(screen)
+zombie.draw()
 pygame.display.flip()
 time.sleep(4)
