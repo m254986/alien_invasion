@@ -14,8 +14,6 @@ class Zombie:
     def draw(self):
         """Draw self"""
         self.screen.blit(self.image, self.rect)
-        #self.screen.blit(self.image, self.rect)
-
 
 pygame.init()
 screen = pygame.display.set_mode((200, 200))
