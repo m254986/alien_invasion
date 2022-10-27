@@ -1,7 +1,6 @@
 import pygame
 import time
 
-
 class Zombie:
     """Lets create the zombie!!"""
     def __init__(self, screen):
