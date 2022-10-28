@@ -1,3 +1,4 @@
+import sys
 import pygame
 import time
 
@@ -49,10 +50,24 @@ while True:
                 rocket.moving_down = False
 
     # ship updates!!
-    if
+    #if rocket.moving_right and rocket.rect.right < screen_rect.right:
+        #x += 1.5
+    #if rocket.moving_left and rocket.rect.left > 0:
+        #x -= 1.5
 
-screen.fill((128, 255, 255))
+    #rect.x = self.x
+    def update(self):
+        """Update pos based on movement flag"""
+        # Update ship's x value, not rect
+        if self.moving_right and self.rect.right < self.screen_rect.right:
+            self.x += self.settings.rocket_speed
+        if self.moving_left and self.rect.left > 0:
+            self.x -= self.settings.rocket_speed
 
-rocket.blitme()
-pygame.display.flip()
-time.sleep(4)
+        # Update rect object from self.x
+        self.rect.x = self.x
+
+    screen.fill((128, 255, 255))
+    rocket.blitme()
+    pygame.display.flip()
+    time.sleep(4)
