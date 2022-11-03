@@ -82,7 +82,27 @@ class AlienInvasion:
                 self.bullets.remove(bullet)
         #print(len(self.bullets))
 
-    def _create_fleet
+    def _create_fleet(self):
+        """Create fleet!!!"""
+        # Make an alien and spacing
+        alien = Alien(self)
+        alien_width, alien_height = alien.rect.size
+        alien_width = alien.rect.width
+        available_space_x = self.settings.screen_width - (2 * alien_width)
+        number_aliens_x = available_space_x // (2 * alien_width)
+
+        # First row!!
+        for alien_number in range(number_aliens_x):
+            self._create_alien(alien_number)
+
+    def _create_alien(self, alien_number):
+        """Create an alien and place it in the row :)"""
+        alien = Alien(self)
+        alien_width = alien.rect.width
+        alien.x = alien_width + 2 * alien_width * alien_number
+        alien.rect.x = alien.x
+        self.aliens.add(alien)
+
     def _update_screen(self):
         """Update images on screen then flip them!!"""
         # Redraw screen for each loop!!
@@ -90,6 +110,7 @@ class AlienInvasion:
         self.ship.blitme()
         for bullet in self.bullets.sprites():
             bullet.draw_bullet()
+        self.aliens.draw(self.screen)
         # Make most recently drawn screen VISIBLE.
         pygame.display.flip()
 

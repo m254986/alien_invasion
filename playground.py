@@ -1,3 +1,2 @@
-x=4
-y=5
-print(f"x+y={x+z}")
+def item_count(shopping_lists):
+    for person in shopping_lists[]
