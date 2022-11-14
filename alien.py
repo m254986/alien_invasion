@@ -21,6 +21,9 @@ class Alien(Sprite):
         # Store horiz pos
         self.x = float(self.rect.x)
 
+    def check_edges(self):
+        """Return True if alien is at edge of screen."""
+        
     def update(self):
         """Move the alien to the right!"""
         self.x += self.settings.alien_speed
